@@ -73,7 +73,7 @@ def login():
         # Verificar las credenciales del usuario en la base de datos
         if verificar_credenciales(username, password):
             # Si las credenciales son válidas, redireccionar a otra página
-            return render_template('index.html')
+            return render_template('principal.html')
         else:
             return'Credenciales incorrectas'
     else:
@@ -120,6 +120,14 @@ def download_excel():
 
     # Envia el archivo Excel como respuesta para descargarlo
     return send_file(excel_file, as_attachment=True)
+@app.route('/housing')
+def housing():
+    return render_template('housing.html') 
+@app.route('/bbdd_page')
+def bbdd_page():
+    return render_template('bbdd_page.html') 
+    
+
 if __name__ == '__main__':
     #from waitress import serve
     #serve(app, host="0.0.0.0", port=8080)
