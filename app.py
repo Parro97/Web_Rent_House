@@ -67,17 +67,20 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':        
-        username = request.form['username']
-        password = request.form['password']
-        # Verificar las credenciales del usuario en la base de datos
-        if verificar_credenciales(username, password):
-            # Si las credenciales son válidas, redireccionar a otra página
-            return render_template('principal.html')
+    try:
+        if request.method == 'POST':        
+            username = request.form['username']
+            password = request.form['password']
+            # Verificar las credenciales del usuario en la base de datos
+            if verificar_credenciales(username, password):
+                # Si las credenciales son válidas, redireccionar a otra página
+                return render_template('principal.html')
+            else:
+                return'Credenciales incorrectas'
         else:
-            return'Credenciales incorrectas'
-    else:
-        return 'aaa'
+            return 'aaa'
+    except Exception as e:
+        return e
     #return render_template('login.html')
 
 @app.route('/upload', methods=['POST'])

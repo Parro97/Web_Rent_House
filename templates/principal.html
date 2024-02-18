@@ -43,12 +43,12 @@
 </head>
 <body>
 <div class="icon-grid">
-    <a class="icon" href="sitio1.html">
-        <img src="icons/house.PNG" alt="Sitio 1">
+    <a class="icon" href="{{url_for('housing')}}">
+        <img src="{{ url_for('static', filename='house.png')}}" alt="Sitio 1">
         <span class="icon-title">Predictor precio casa</span>
     </a>
-    <a class="icon" href="bbdd_page.html">
-        <img src="icons/bbdd.PNG" alt="Sitio 2">
+    <a class="icon" href="{{url_for('bbdd_page')}}">
+        <img src="{{ url_for('static', filename='bbdd.png')}}" alt="Sitio 2">
         <span class="icon-title">Conectar con BBDD</span>
     </a>
     <a class="icon" href="sitio3.html">
